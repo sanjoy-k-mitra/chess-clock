@@ -1,0 +1,37 @@
+.chess-clock{
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.clock-container{
+    border-bottom: 2px solid black;
+}
+.clock{
+    display: inline-block;
+    width: 200px;
+    height: 100px;
+    border: 5px solid black;
+    text-align: center;
+    font-size: 5em;
+}
+.clock-space{
+    display: inline-block;
+    width: 80px;
+}
+.chess-clock-base{
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid black;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+.current-status{
+    text-align: center;
+    font-size: 2.5em;
+}
+.chess-clock-controls{
+    text-align: center;
+}
