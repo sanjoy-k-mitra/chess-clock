@@ -16,7 +16,7 @@ var ChessClock = React.createClass({
         this.setState({clocks: clocks, currentStatus: "Next Move : Player 1"});
     },
     tick0: function(){
-        var elapsed = Math.round((new Date() - this.startTime0)/100);
+        var elapsed = Math.round((new Date() - this.startTime0)/1000);
         this.state.clocks[0].elapsed = elapsed;
         this.state.clocks[0].remaining = 240 - elapsed;
         if(this.state.clocks[0].remaining <= 0){
@@ -27,7 +27,7 @@ var ChessClock = React.createClass({
         this.setState(this.state);
     },
     tick1: function () {
-        var elapsed = Math.round((new Date() - this.startTime1)/100);
+        var elapsed = Math.round((new Date() - this.startTime1)/1000);
         this.state.clocks[1].elapsed = elapsed;
         this.state.clocks[1].remaining = 240 - elapsed;
         if(this.state.clocks[1].remaining <= 0){
@@ -86,11 +86,11 @@ var ChessClock = React.createClass({
                 </div>
                 <div className="clock-container">
                     <div className="clock" onClick={this.player0Moved}>
-                        {Math.round(this.state.clocks[0].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[0].remaining % 60)}
+                        {Math.floor(this.state.clocks[0].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[0].remaining % 60)}
                     </div>
                     <div className="clock-space"></div>
                     <div className="clock " onClick={this.player1Moved}>
-                        {Math.round(this.state.clocks[1].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[1].remaining % 60)}
+                        {Math.floor(this.state.clocks[1].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[1].remaining % 60)}
                     </div>
                 </div>
                 <div className="chess-clock-base">
