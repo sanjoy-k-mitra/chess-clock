@@ -2,7 +2,7 @@
  * Created by sanjoy on 6/30/15.
  */
 
-var ChessClock = React.createClass({
+var ChessClock = React.createClass({displayName: "ChessClock",
     getInitialState: function () {
         this.active = 0;
         var clocks = [{elapsed: 0, remaining: 240},{elapsed: 0, remaining: 240}];
@@ -80,28 +80,28 @@ var ChessClock = React.createClass({
     },
     render: function () {
         return (
-            <div className="chess-clock">
-                <div className="current-status">
-                    {this.state.currentStatus}
-                </div>
-                <div className="clock-container">
-                    <div className="clock" onClick={this.player0Moved}>
-                        {Math.floor(this.state.clocks[0].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[0].remaining % 60)}
-                    </div>
-                    <div className="clock-space"></div>
-                    <div className="clock " onClick={this.player1Moved}>
-                        {Math.floor(this.state.clocks[1].remaining / 60)}:{this.roundDoubleDigit(this.state.clocks[1].remaining % 60)}
-                    </div>
-                </div>
-                <div className="chess-clock-base">
-                </div>
-                <div className="chess-clock-controls">
-                    <button onClick={this.reset}>Reset</button>
-                </div>
-            </div>
+            React.createElement("div", {className: "chess-clock"}, 
+                React.createElement("div", {className: "current-status"}, 
+                    this.state.currentStatus
+                ), 
+                React.createElement("div", {className: "clock-container"}, 
+                    React.createElement("div", {className: "clock", onClick: this.player0Moved}, 
+                        Math.floor(this.state.clocks[0].remaining / 60), ":", this.roundDoubleDigit(this.state.clocks[0].remaining % 60)
+                    ), 
+                    React.createElement("div", {className: "clock-space"}), 
+                    React.createElement("div", {className: "clock ", onClick: this.player1Moved}, 
+                        Math.floor(this.state.clocks[1].remaining / 60), ":", this.roundDoubleDigit(this.state.clocks[1].remaining % 60)
+                    )
+                ), 
+                React.createElement("div", {className: "chess-clock-base"}
+                ), 
+                React.createElement("div", {className: "chess-clock-controls"}, 
+                    React.createElement("button", {onClick: this.reset}, "Reset")
+                )
+            )
         );
     }
 });
 
 
-React.render(<ChessClock/>, document.getElementById('content'));
+React.render(React.createElement(ChessClock, null), document.getElementById('content'));
